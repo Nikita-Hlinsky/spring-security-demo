@@ -24,6 +24,17 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 	}
 
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests()
+			.anyRequest().authenticated() //any requests must be logged in
+				.and()
+			.formLogin()
+				.loginPage("/showMyLoginPage")
+				.loginProcessingUrl("/authinticateTheUser")
+				.permitAll();
+	}
+
 	
 	
 }
