@@ -1,15 +1,28 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ 
+
 
 <html>
 
 	<head>
 		<title>Login</title>
+		
+		<link type="text/css"
+		  rel="stylesheet"
+		  href="../resources/css/plain-login-style.css">
+		  
+			
 	</head>
 	
 	<body>
 		
 		<form:form action="${pageContext.request.contextPath}/authinticateTheUser"
 			method="POST">
+		
+			<c:if test="${param.error != null}">
+				<p class="failed" >ERROR</p>
+			</c:if>
 		
 			<p>
 				Username: <input type="text" name="username"/>
