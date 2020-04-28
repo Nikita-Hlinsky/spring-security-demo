@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 <html>
 
@@ -14,8 +15,20 @@
 </head>
 
 <body>
-	<h1>Nice cok bro</h1>
+	
 	<h2>Want some JAVA?</h2>
+	
+	<hr>
+	
+	<p>
+	
+		user: <security:authentication property="principal.username" /> <br>
+		role: <security:authentication property="principal.authorities" />
+	
+	</p>
+	
+	<hr>
+
 	<h3>Oh no, then u can leave our java party on link below</h3>
 	
 	<form:form action="${pageContext.request.contextPath}/logout" 
